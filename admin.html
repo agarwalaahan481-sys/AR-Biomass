@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AR Biomass Admin</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #eef3eb;
+            color: #18251b;
+        }
+
+        .topbar {
+            background: #123d28;
+            color: white;
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar strong {
+            color: #b8d66b;
+            font-size: 21px;
+        }
+
+        .topbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 18px;
+        }
+
+        .topbar button {
+            background: transparent;
+            border: 1px solid #8ca794;
+            color: white;
+            padding: 9px 15px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(1100px, 92%);
+            margin: 35px auto;
+        }
+
+        .panel {
+            background: white;
+            padding: 30px;
+            margin-bottom: 22px;
+            border-radius: 14px;
+            border: 1px solid #dbe3d8;
+            box-shadow: 0 10px 30px rgba(18, 61, 40, 0.07);
+        }
+
+        h1,
+        h2 {
+            color: #123d28;
+        }
+
+        h1 {
+            font-size: 38px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .login {
+            max-width: 430px;
+            margin: 90px auto;
+        }
+
+        .field {
+            margin: 16px 0;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd7cc;
+            border-radius: 7px;
+            font: inherit;
+        }
+
+        .field textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .button {
+            border: none;
+            border-radius: 7px;
+            padding: 12px 20px;
+            background: #123d28;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button.green {
+            background: #4d9a62;
+        }
+
+        .button.red {
+            background: #a33b32;
+        }
+
+        .status {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .warning {
+            padding: 15px;
+            background: #fff6d8;
+            border: 1px solid #ead99a;
+            border-radius: 8px;
+            color: #604f15;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .small {
+            color: #667168;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .photo-list {
+            margin-top: 20px;
+        }
+
+        .photo-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-top: 1px solid #dbe3d8;
+        }
+
+        .photo-item img {
+            width: 100px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 7px;
+            background: #e9eee4;
+        }
+
+        .photo-info {
+            flex: 1;
+        }
+
+        @media (max-width: 700px) {
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .panel {
+                padding: 20px;
+            }
+
+            .photo-item {
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <strong>AR Biomass Admin</strong>
+
+    <div>
+        <a href="index.html">Public Website</a>
+        <button id="logoutButton">Logout</button>
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+    <!-- LOGIN -->
+
+    <section id="loginPanel" class="panel login">
+
+        <h1>Admin Login</h1>
+
+        <p class="small">
+            AR Biomass promotional website management.
+        </p>
+
+        <div class="field">
+
+            <label>Admin ID</label>
+
+            <input
+                id="adminId"
+                type="text"
+                autocomplete="username"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>Password</label>
+
+            <input
+                id="adminPassword"
+                type="password"
+                autocomplete="current-password"
+            >
+
+        </div>
+
+
+        <button
+            class="button"
+            id="loginButton"
+        >
+            Login
+        </button>
+
+
+        <div
+            id="loginMessage"
+            class="status"
+        ></div>
+
+    </section>
+
+
+
+    <!-- DASHBOARD -->
+
+    <section
+        id="dashboard"
+        class="hidden"
+    >
+
+        <h1>AR Biomass Dashboard</h1>
+
+
+        <div class="warning">
+
+            <strong>Important:</strong>
+
+            This website uses GitHub Pages, which is a
+            static hosting service. Therefore this dashboard
+            stores management settings in your browser.
+
+            It does not create a secure server-side database
+            or permanent cloud photo storage.
+
+        </div>
+
+
+        <!-- HERO -->
+
+        <div class="panel">
+
+            <h2>Hero Section</h2>
+
+            <div class="grid">
+
+                <div class="field">
+
+                    <label>Hero Eyebrow</label>
+
+                    <input id="heroEyebrow">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Hero Title</label>
+
+                    <input id="heroTitle">
+
+                </div>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Hero Description</label>
+
+                <textarea id="heroDescription"></textarea>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ABOUT -->
+
+        <div class="panel">
+
+            <h2>About Section</h2>
+
+
+            <div class="field">
+
+                <label>About Heading</label>
+
+                <textarea id="aboutHeading"></textarea>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>About Paragraph 1</label>
+
+                <textarea id="aboutParagraph1"></textarea>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>About Paragraph 2</label>
+
+                <textarea id="aboutParagraph2"></textarea>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PRODUCTS -->
+
+        <div class="panel">
+
+            <h2>Products</h2>
+
+
+            <div class="grid">
+
+                <div>
+
+                    <div class="field">
+
+                        <label>Product 1 Name</label>
+
+                        <input id="product1Name">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Product 1 Description</label>
+
+                        <textarea id="product1Description"></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <div class="field">
+
+                        <label>Product 2 Name</label>
+
+                        <input id="product2Name">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Product 2 Description</label>
+
+                        <textarea id="product2Description"></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTACT -->
+
+        <div class="panel">
+
+            <h2>Contact Information</h2>
+
+
+            <div class="grid">
+
+                <div class="field">
+
+                    <label>Phone Number 1</label>
+
+                    <input id="phone1">
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Phone Number 2</label>
+
+                    <input id="phone2">
+
+                </div>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>WhatsApp Number</label>
+
+                <input id="whatsapp">
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Business Address</label>
+
+                <textarea id="address"></textarea>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- GALLERY -->
+
+        <div class="panel">
+
+            <h2>Gallery Management</h2>
+
+            <p class="small">
+
+                Select an image from your computer and add it
+                to this browser's local gallery.
+
+            </p>
+
+
+            <div class="field">
+
+                <label>Photo</label>
+
+                <input
+                    id="photoFile"
+                    type="file"
+                    accept="image/*"
+                >
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Photo Title</label>
+
+                <input
+                    id="photoTitle"
+                    placeholder="Biomass Pellets"
+                >
+
+            </div>
+
+
+            <button
+                class="button green"
+                id="addPhotoButton"
+            >
+                Add Photo
+            </button>
+
+
+            <div
+                id="photoList"
+                class="photo-list"
+            ></div>
+
+        </div>
+
+
+
+        <!-- SAVE -->
+
+        <div class="panel">
+
+            <h2>Save Changes</h2>
+
+
+            <button
+                class="button"
+                id="saveButton"
+            >
+                Save Website Changes
+            </button>
+
+
+            <button
+                class="button green"
+                id="backupButton"
+            >
+                Export Backup
+            </button>
+
+
+            <button
+                class="button red"
+                id="resetButton"
+            >
+                Reset Saved Content
+            </button>
+
+
+            <div
+                id="saveMessage"
+                class="status"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script>
+
+    /*
+       =====================================================
+       AR BIOMASS ADMIN SYSTEM
+       =====================================================
+
+       Demo login:
+
+       Admin ID:
+       ARADMIN
+
+       Password:
+       ARBIOMASS2026
+
+       IMPORTANT:
+       This is NOT server-side secure authentication.
+       It is suitable only for this static GitHub Pages
+       prototype.
+    */
+
+
+    const ADMIN_ID = "ARBIOMASSADMIN";
+
+    const ADMIN_PASSWORD = "ARBiomass@2026";
+
+
+    const defaultData = {
+
+        heroEyebrow:
+            "RELIABLE BIOMASS SUPPLY",
+
+        heroTitle:
+            "Cleaner Fuel. Reliable Supply. Smarter Energy.",
+
+        heroDescription:
+            "AR Biomass supplies biomass pellets and rice husk for industrial and commercial applications, with a focus on dependable quality and responsible resource use.",
+
+        aboutHeading:
+            "Turning agricultural resources into useful energy.",
+
+        aboutParagraph1:
+            "AR Biomass is focused on supplying biomass-based materials for businesses looking for practical and responsible fuel solutions.",
+
+        aboutParagraph2:
+            "Our product range includes biomass pellets and rice husk. We aim to provide dependable supply, clear product information and professional service to our business customers.",
+
+        product1Name:
+            "Biomass Pellets",
+
+        product1Description:
+            "Compressed biomass fuel designed for convenient handling, storage and use in suitable industrial heating and boiler applications.",
+
+        product2Name:
+            "Rice Husk",
+
+        product2Description:
+            "Rice-processing biomass material supplied for suitable industrial and commercial applications.",
+
+        phone1:
+            "9837591626",
+
+        phone2:
+            "9837419392",
+
+        whatsapp:
+            "919837591626",
+
+        address:
+            "Tatarpur Road, behind K.K. Dharam Kata, near Purana Kali Nadi, Hapur.",
+
+        gallery:
+            []
+
+    };
+
+
+    function getData() {
+
+        const saved =
+            localStorage.getItem("arBiomassData");
+
+        if (!saved) {
+
+            return {
+                ...defaultData
+            };
+
+        }
+
+        try {
+
+            return JSON.parse(saved);
+
+        } catch {
+
+            return {
+                ...defaultData
+            };
+
+        }
+
+    }
+
+
+    function setValue(id, value) {
+
+        const element =
+            document.getElementById(id);
+
+        if (element) {
+
+            element.value =
+                value || "";
+
+        }
+
+    }
+
+
+    function loadDashboard() {
+
+        const data =
+            getData();
+
+
+        setValue(
+            "heroEyebrow",
+            data.heroEyebrow
+        );
+
+        setValue(
+            "heroTitle",
+            data.heroTitle
+        );
+
+        setValue(
+            "heroDescription",
+            data.heroDescription
+        );
+
+        setValue(
+            "aboutHeading",
+            data.aboutHeading
+        );
+
+        setValue(
+            "aboutParagraph1",
+            data.aboutParagraph1
+        );
+
+        setValue(
+            "aboutParagraph2",
+            data.aboutParagraph2
+        );
+
+        setValue(
+            "product1Name",
+            data.product1Name
+        );
+
+        setValue(
+            "product1Description",
+            data.product1Description
+        );
+
+        setValue(
+            "product2Name",
+            data.product2Name
+        );
+
+        setValue(
+            "product2Description",
+            data.product2Description
+        );
+
+        setValue(
+            "phone1",
+            data.phone1
+        );
+
+        setValue(
+            "phone2",
+            data.phone2
+        );
+
+        setValue(
+            "whatsapp",
+            data.whatsapp
+        );
+
+        setValue(
+            "address",
+            data.address
+        );
+
+
+        renderGallery();
+
+    }
+
+
+    function collectData() {
+
+        const oldData =
+            getData();
+
+
+        return {
+
+            heroEyebrow:
+                document.getElementById("heroEyebrow").value,
+
+            heroTitle:
+                document.getElementById("heroTitle").value,
+
+            heroDescription:
+                document.getElementById("heroDescription").value,
+
+            aboutHeading:
+                document.getElementById("aboutHeading").value,
+
+            aboutParagraph1:
+                document.getElementById("aboutParagraph1").value,
+
+            aboutParagraph2:
+                document.getElementById("aboutParagraph2").value,
+
+            product1Name:
+                document.getElementById("product1Name").value,
+
+            product1Description:
+                document.getElementById("product1Description").value,
+
+            product2Name:
+                document.getElementById("product2Name").value,
+
+            product2Description:
+                document.getElementById("product2Description").value,
+
+            phone1:
+                document.getElementById("phone1").value,
+
+            phone2:
+                document.getElementById("phone2").value,
+
+            whatsapp:
+                document.getElementById("whatsapp").value,
+
+            address:
+                document.getElementById("address").value,
+
+            gallery:
+                oldData.gallery || []
+
+        };
+
+    }
+
+
+    document
+        .getElementById("loginButton")
+        .addEventListener(
+            "click",
+            function () {
+
+                const id =
+                    document.getElementById("adminId").value;
+
+                const password =
+                    document.getElementById("adminPassword").value;
+
+
+                if (
+                    id === ADMIN_ID &&
+                    password === ADMIN_PASSWORD
+                ) {
+
+                    sessionStorage.setItem(
+                        "arAdminLoggedIn",
+                        "true"
+                    );
+
+
+                    document
+                        .getElementById("loginPanel")
+                        .classList.add("hidden");
+
+
+                    document
+                        .getElementById("dashboard")
+                        .classList.remove("hidden");
+
+
+                    loadDashboard();
+
+                } else {
+
+                    document
+                        .getElementById("loginMessage")
+                        .textContent =
+                        "Incorrect Admin ID or password.";
+
+                }
+
+            }
+        );
+
+
+    document
+        .getElementById("logoutButton")
+        .addEventListener(
+            "click",
+            function () {
+
+                sessionStorage.removeItem(
+                    "arAdminLoggedIn"
+                );
+
+                location.reload();
+
+            }
+        );
+
+
+    document
+        .getElementById("saveButton")
+        .addEventListener(
+            "click",
+            function () {
+
+                const data =
+                    collectData();
+
+
+                localStorage.setItem(
+                    "arBiomassData",
+                    JSON.stringify(data)
+                );
+
+
+                document
+                    .getElementById("saveMessage")
+                    .textContent =
+                    "Changes saved in this browser.";
+
+            }
+        );
+
+
+    document
+        .getElementById("addPhotoButton")
+        .addEventListener(
+            "click",
+            function () {
+
+                const file =
+                    document.getElementById("photoFile").files[0];
+
+                const title =
+                    document.getElementById("photoTitle").value;
+
+
+                if (!file) {
+
+                    alert(
+                        "Please select a photo first."
+                    );
+
+                    return;
+
+                }
+
+
+                const reader =
+                    new FileReader();
+
+
+                reader.onload = function (event) {
+
+                    const data =
+                        getData();
+
+
+                    data.gallery.push({
+
+                        title:
+                            title || "AR Biomass",
+
+                        image:
+                            event.target.result
+
+                    });
+
+
+                    localStorage.setItem(
+                        "arBiomassData",
+                        JSON.stringify(data)
+                    );
+
+
+                    document
+                        .getElementById("photoFile")
+                        .value = "";
+
+                    document
+                        .getElementById("photoTitle")
+                        .value = "";
+
+
+                    renderGallery();
+
+                };
+
+
+                reader.readAsDataURL(file);
+
+            }
+        );
+
+
+    function renderGallery() {
+
+        const data =
+            getData();
+
+
+        const list =
+            document.getElementById("photoList");
+
+
+        list.innerHTML = "";
+
+
+        data.gallery.forEach(
+            function (photo, index) {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "photo-item";
+
+
+                item.innerHTML = `
+
+                    <img
+                        src="${photo.image}"
+                        alt="${photo.title}"
+                    >
+
+                    <div class="photo-info">
+
+                        <strong>
+                            ${photo.title}
+                        </strong>
+
+                    </div>
+
+                    <button
+                        class="button red"
+                        onclick="deletePhoto(${index})"
+                    >
+                        Delete
+                    </button>
+
+                `;
+
+
+                list.appendChild(item);
+
+            }
+        );
+
+    }
+
+
+    window.deletePhoto =
+        function (index) {
+
+            const data =
+                getData();
+
+
+            data.gallery.splice(
+                index,
+                1
+            );
+
+
+            localStorage.setItem(
+                "arBiomassData",
+                JSON.stringify(data)
+            );
+
+
+            renderGallery();
+
+        };
+
+
+    document
+        .getElementById("backupButton")
+        .addEventListener(
+            "click",
+            function () {
+
+                const data =
+                    localStorage.getItem(
+                        "arBiomassData"
+                    );
+
+
+                const blob =
+                    new Blob(
+                        [data || "{}"],
+                        {
+                            type: "application/json"
+                        }
+                    );
+
+
+                const url =
+                    URL.createObjectURL(blob);
+
+
+                const link =
+                    document.createElement("a");
+
+
+                link.href =
+                    url;
+
+                link.download =
+                    "AR-Biomass-backup.json";
+
+
+                link.click();
+
+
+                URL.revokeObjectURL(url);
+
+            }
+        );
+
+
+    document
+        .getElementById("resetButton")
+        .addEventListener(
+            "click",
+            function () {
+
+                const confirmed =
+                    confirm(
+                        "Reset all saved admin content?"
+                    );
+
+
+                if (!confirmed) {
+                    return;
+                }
+
+
+                localStorage.removeItem(
+                    "arBiomassData"
+                );
+
+
+                loadDashboard();
+
+
+                document
+                    .getElementById("saveMessage")
+                    .textContent =
+                    "Saved content has been reset.";
+
+            }
+        );
+
+
+    if (
+        sessionStorage.getItem(
+            "arAdminLoggedIn"
+        ) === "true"
+    ) {
+
+        document
+            .getElementById("loginPanel")
+            .classList.add("hidden");
+
+
+        document
+            .getElementById("dashboard")
+            .classList.remove("hidden");
+
+
+        loadDashboard();
+
+    }
+
+</script>
+
+</body>
+</html>

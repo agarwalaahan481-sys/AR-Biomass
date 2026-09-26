@@ -39,7 +39,7 @@ a{
 }
 
 
-/* HEADER */
+/* ================= HEADER ================= */
 
 .site-header{
     position:sticky;
@@ -115,7 +115,7 @@ a{
 }
 
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero{
     min-height:680px;
@@ -197,7 +197,7 @@ a{
 }
 
 
-/* HERO VISUAL */
+/* ================= HERO LOGO ================= */
 
 .hero-visual{
     min-height:440px;
@@ -206,69 +206,35 @@ a{
     position:relative;
 }
 
-.hero-circle{
+.hero-logo-circle{
     width:min(420px,80vw);
     height:min(420px,80vw);
     border-radius:50%;
-    background:
-    radial-gradient(circle at 50% 45%,#496e4f,#174d34 62%,#0e3926);
+    background:#fff;
     box-shadow:0 30px 70px rgba(18,60,42,.22);
     position:relative;
-    border:1px solid rgba(255,255,255,.2);
+    border:1px solid rgba(18,60,42,.15);
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.hero-circle::before{
+.hero-logo-circle::before{
     content:"";
     position:absolute;
-    inset:30px;
-    border:1px solid rgba(255,255,255,.25);
+    inset:25px;
+    border:1px solid rgba(18,60,42,.16);
     border-radius:50%;
+    pointer-events:none;
 }
 
-.briquette{
-    position:absolute;
-    width:100px;
-    height:48px;
-    border-radius:9px;
-    background:
-    repeating-linear-gradient(
-        90deg,
-        #332a21 0 9px,
-        #5c4937 10px 17px
-    );
-    box-shadow:
-    inset 0 5px 8px rgba(255,255,255,.1),
-    0 10px 15px rgba(0,0,0,.25);
-    transform:rotate(-20deg);
-}
-
-.b1{
-    top:125px;
-    left:90px;
-}
-
-.b2{
-    top:190px;
-    left:190px;
-    transform:rotate(18deg);
-}
-
-.b3{
-    top:250px;
-    left:105px;
-    transform:rotate(8deg);
-}
-
-.b4{
-    top:180px;
-    left:105px;
-    transform:rotate(-8deg);
-}
-
-.b5{
-    top:125px;
-    left:210px;
-    transform:rotate(12deg);
+.hero-logo-circle img{
+    width:88%;
+    height:88%;
+    object-fit:contain;
+    position:relative;
+    z-index:2;
 }
 
 .hero-label{
@@ -296,7 +262,7 @@ a{
 }
 
 
-/* STATS */
+/* ================= STATS ================= */
 
 .stats{
     background:#123c2a;
@@ -331,7 +297,7 @@ a{
 }
 
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 
 .section{
     padding:100px 0;
@@ -373,7 +339,7 @@ h2{
 }
 
 
-/* PRODUCTS */
+/* ================= PRODUCTS ================= */
 
 .section-heading{
     display:flex;
@@ -411,7 +377,8 @@ h2{
 }
 
 
-/* BIOMASS BRIQUETTES PRODUCT VISUAL */
+/* ================= PRODUCT 01 ================= */
+/* OLD GREEN DESIGN — ONLY TEXT CHANGED TO BRIQUETTES */
 
 .briquettes-image{
     background:
@@ -463,7 +430,8 @@ h2{
 }
 
 
-/* RICE HUSK */
+/* ================= PRODUCT 02 ================= */
+/* OLD RICE HUSK DESIGN */
 
 .husk-image{
     background:
@@ -479,6 +447,7 @@ h2{
     width:82%;
     height:72%;
     border-radius:20px;
+
     background:
     radial-gradient(ellipse at 20% 30%,#e8bd68 0 7%,transparent 8%),
     radial-gradient(ellipse at 40% 70%,#d4a44e 0 8%,transparent 9%),
@@ -522,6 +491,20 @@ h2{
     transform:rotate(-20deg);
 }
 
+.husk-title{
+    position:absolute;
+    z-index:4;
+    color:white;
+    text-align:center;
+    font-size:44px;
+    line-height:.95;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+
+/* ================= PRODUCT CONTENT ================= */
+
 .product-content{
     padding:32px;
 }
@@ -561,7 +544,7 @@ h2{
 }
 
 
-/* APPLICATIONS */
+/* ================= APPLICATIONS ================= */
 
 .section-intro{
     max-width:650px;
@@ -599,7 +582,7 @@ h2{
 }
 
 
-/* WHY */
+/* ================= WHY ================= */
 
 .dark-section{
     background:#123c2a;
@@ -641,10 +624,8 @@ h2{
 }
 
 
-/* GALLERY
-   Empty for now.
-   Your two real photos can be added later.
-*/
+/* ================= GALLERY ================= */
+/* LEFT EMPTY FOR YOUR REAL PHOTOS LATER */
 
 .gallery-grid{
     display:grid;
@@ -674,7 +655,7 @@ h2{
 }
 
 
-/* CONTACT */
+/* ================= CONTACT ================= */
 
 .contact-section{
     padding:100px 0;
@@ -683,167 +664,200 @@ h2{
 
 .contact-grid{
     display:grid;
-    grid-template-columns:1fr .8fr;
-    gap:70px;
-    align-items:center;
-}
-
-.contact-grid h2{
-    max-width:600px;
-}
-
-.contact-grid>div:first-child>p:last-child{
-    max-width:580px;
-    color:#5c6d64;
-    margin-top:20px;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
 }
 
 .contact-card{
-    background:#123c2a;
-    color:white;
+    background:white;
     padding:35px;
-    border-radius:16px;
-    box-shadow:0 20px 45px rgba(18,60,42,.18);
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(20,50,35,.07);
 }
 
-.contact-item{
-    padding:20px 0;
-    border-bottom:1px solid rgba(255,255,255,.15);
+.contact-card h3{
+    color:#123c2a;
+    margin-bottom:18px;
 }
 
-.contact-item:last-child{
-    border-bottom:none;
+.contact-card p{
+    color:#627067;
+    margin:10px 0;
 }
 
-.contact-item>span{
-    display:block;
-    color:#d7ad61;
-    font-size:10px;
-    letter-spacing:2px;
-    font-weight:900;
-    margin-bottom:8px;
-}
-
-.contact-item a{
-    font-size:17px;
-    font-weight:700;
-}
-
-.contact-item p{
-    color:#d2ddd6;
+.contact-card strong{
+    color:#123c2a;
 }
 
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer{
-    background:#0c2c1e;
+    background:#0e2e20;
     color:white;
-    padding:35px 0;
+    padding:45px 0;
 }
 
-.footer-content{
-    display:flex;
-    justify-content:space-between;
-    gap:30px;
+.footer-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
     align-items:center;
 }
 
-.footer-content strong{
-    font-size:18px;
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
-.footer-content p{
-    color:#b9c9bf;
+.footer-brand img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    object-fit:cover;
+    background:white;
+}
+
+.footer-brand strong{
+    font-size:20px;
+}
+
+.footer-brand span{
+    display:block;
+    color:#b8c9be;
+    font-size:12px;
+    margin-top:3px;
+}
+
+.footer-right{
+    text-align:right;
+    color:#b8c9be;
     font-size:13px;
-    margin-top:4px;
 }
 
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:900px){
 
     .navigation{
-        display:none;
+        gap:12px;
     }
 
-    .hero-content,
-    .two-column,
-    .contact-grid{
+    .navigation a{
+        font-size:12px;
+    }
+
+    .hero-content{
         grid-template-columns:1fr;
+        text-align:center;
     }
 
-    .hero{
-        min-height:auto;
+    .hero-description{
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
     }
 
     .hero-visual{
-        min-height:430px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
-    }
-
-    .application-grid,
-    .why-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .section-heading{
-        align-items:start;
-        flex-direction:column;
-    }
-}
-
-@media(max-width:600px){
-
-    .hero-content{
-        padding:65px 0;
-    }
-
-    .hero h1{
-        font-size:45px;
-        letter-spacing:-2px;
+        margin-top:20px;
     }
 
     .stats-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .stat:nth-child(2){
-        border-right:none;
+    .two-column{
+        grid-template-columns:1fr;
+        gap:45px;
     }
 
-    .application-grid,
-    .why-grid,
+    .application-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .nav{
+        min-height:68px;
+    }
+
+    .logo-text{
+        display:none;
+    }
+
+    .navigation{
+        gap:10px;
+    }
+
+    .navigation a{
+        font-size:11px;
+    }
+
+    .hero{
+        min-height:auto;
+    }
+
+    .hero-content{
+        padding:70px 0;
+    }
+
+    .hero h1{
+        font-size:46px;
+        letter-spacing:-2px;
+    }
+
+    .hero-logo-circle{
+        width:300px;
+        height:300px;
+    }
+
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+
+    .application-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-grid{
+        grid-template-columns:1fr;
+    }
+
     .gallery-grid{
         grid-template-columns:1fr;
     }
 
-    .product-image{
-        height:280px;
+    .contact-grid{
+        grid-template-columns:1fr;
     }
 
-    .section{
-        padding:70px 0;
+    .footer-grid{
+        grid-template-columns:1fr;
+        text-align:center;
     }
 
-    .footer-content{
-        flex-direction:column;
-        align-items:flex-start;
+    .footer-brand{
+        justify-content:center;
     }
 
-    .hero-label{
-        right:5%;
-    }
-
-    .briquettes-title{
-        font-size:34px;
+    .footer-right{
+        text-align:center;
     }
 
 }
+
+
+/* ================= END CSS ================= */
 
 </style>
 </head>
@@ -866,7 +880,7 @@ footer{
 
 <div class="logo-text">
 <strong>AR Biomass</strong>
-<span>Biomass • Sustainable Fuel</span>
+<span>Natural Resource • Sustainable Tomorrow</span>
 </div>
 
 </a>
@@ -888,20 +902,18 @@ footer{
 </header>
 
 
-
 <!-- ================= HERO ================= -->
 
-<section id="home" class="hero">
+<section class="hero" id="home">
 
 <div class="container hero-content">
 
 
-<div class="hero-text">
+<div>
 
 <p class="eyebrow">
 RELIABLE BIOMASS SUPPLY
 </p>
-
 
 <h1>
 Cleaner Fuel.<br>
@@ -909,13 +921,9 @@ Reliable Supply.<br>
 <span>Smarter Energy.</span>
 </h1>
 
-
 <p class="hero-description">
-AR Biomass supplies Biomass Briquettes and Rice Husk
-for industrial and commercial applications, with a
-focus on dependable quality and responsible resource use.
+AR Biomass supplies quality biomass products for industrial and commercial applications, with a focus on dependable supply, practical energy solutions and sustainable resources.
 </p>
-
 
 <div class="hero-buttons">
 
@@ -932,28 +940,25 @@ Contact Us
 </div>
 
 
-
-<!-- HERO PRODUCT VISUAL -->
+<!-- NEW AR BIOMASS LOGO HERE -->
 
 <div class="hero-visual">
 
-<div class="hero-circle">
+<div class="hero-logo-circle">
 
-<div class="briquette b1"></div>
-<div class="briquette b2"></div>
-<div class="briquette b3"></div>
-<div class="briquette b4"></div>
-<div class="briquette b5"></div>
+<img
+src="ar-biomass-logo.png"
+alt="AR Biomass Products Logo"
+>
 
 </div>
-
 
 <div class="hero-label">
 
 <small>AR BIOMASS</small>
 
 <strong>
-Biomass Fuel Solutions
+Natural Resource • Sustainable Tomorrow
 </strong>
 
 </div>
@@ -966,30 +971,30 @@ Biomass Fuel Solutions
 </section>
 
 
-<!-- ================= QUICK STATS ================= -->
+<!-- ================= STATS ================= -->
 
 <section class="stats">
 
 <div class="container stats-grid">
 
 <div class="stat">
-<strong>02</strong>
-<span>Core Products</span>
+<strong>2+</strong>
+<span>Biomass Products</span>
 </div>
 
 <div class="stat">
-<strong>B2B</strong>
-<span>Business Focus</span>
-</div>
-
-<div class="stat">
-<strong>Bulk</strong>
+<strong>Reliable</strong>
 <span>Supply</span>
 </div>
 
 <div class="stat">
-<strong>Quality</strong>
-<span>Focused</span>
+<strong>Industrial</strong>
+<span>Applications</span>
+</div>
+
+<div class="stat">
+<strong>Sustainable</strong>
+<span>Resources</span>
 </div>
 
 </div>
@@ -997,10 +1002,9 @@ Biomass Fuel Solutions
 </section>
 
 
-
 <!-- ================= ABOUT ================= -->
 
-<section id="about" class="section">
+<section class="section" id="about">
 
 <div class="container two-column">
 
@@ -1022,25 +1026,19 @@ into useful energy.
 <div class="about-text">
 
 <p>
-AR Biomass is focused on supplying biomass-based
-materials for businesses looking for practical and
-responsible fuel solutions.
+AR Biomass works with biomass resources to provide practical and sustainable fuel solutions for businesses and industries.
 </p>
 
 <p>
-Our product range includes Biomass Briquettes and Rice Husk.
-We aim to provide dependable supply, clear product
-information and professional service to our business
-customers.
+Our focus is on dependable products, consistent supply and responsible use of renewable agricultural resources.
 </p>
-
 
 <div class="check-list">
 
-<div>✓ Reliable product supply</div>
-<div>✓ Professional B2B service</div>
-<div>✓ Bulk supply solutions</div>
-<div>✓ Resource-conscious approach</div>
+<div>✓ Reliable biomass supply</div>
+<div>✓ Sustainable resource utilisation</div>
+<div>✓ Industrial and commercial applications</div>
+<div>✓ Practical energy solutions</div>
 
 </div>
 
@@ -1051,53 +1049,45 @@ customers.
 </section>
 
 
-
 <!-- ================= PRODUCTS ================= -->
 
-<section id="products" class="section light-section">
+<section class="section light-section" id="products">
 
 <div class="container">
-
 
 <div class="section-heading">
 
 <div>
 
 <p class="eyebrow">
-OUR PRODUCTS
+EXPLORE PRODUCTS
 </p>
 
 <h2>
-Biomass products for
-practical applications.
+Our Products
 </h2>
 
 </div>
 
-
 <p>
-Explore the core biomass products supplied by
-AR Biomass.
+Biomass products designed for practical industrial and commercial use.
 </p>
 
 </div>
-
 
 
 <div class="product-grid">
 
 
-<!-- BIOMASS BRIQUETTES -->
+<!-- PRODUCT 01 -->
 
 <article class="product-card">
-
 
 <div class="product-image briquettes-image">
 
 <div class="product-badge">
-BIOMASS BRIQUETTES
+PRODUCT 01
 </div>
-
 
 <div class="briquettes-title">
 BIOMASS<br>
@@ -1109,31 +1099,26 @@ BRIQUETTES
 
 <div class="product-content">
 
-<span class="product-number">
+<div class="product-number">
 PRODUCT 01
-</span>
+</div>
 
 <h3>
 Biomass Briquettes
 </h3>
 
 <p>
-Compressed biomass fuel designed for
-convenient handling, storage and use in
-suitable industrial heating and boiler
-applications.
+Biomass briquettes made from agricultural biomass and suitable for applications requiring a practical renewable solid fuel.
 </p>
 
 <ul>
-
-<li>Compact and easy to handle</li>
-<li>Suitable for bulk supply</li>
-<li>Useful for compatible biomass systems</li>
-
+<li>Renewable biomass fuel</li>
+<li>Suitable for industrial applications</li>
+<li>Convenient solid fuel format</li>
 </ul>
 
 <a href="#contact" class="product-link">
-Enquire about briquettes →
+Enquire About Briquettes →
 </a>
 
 </div>
@@ -1141,49 +1126,48 @@ Enquire about briquettes →
 </article>
 
 
-
-<!-- RICE HUSK -->
+<!-- PRODUCT 02 -->
 
 <article class="product-card">
-
 
 <div class="product-image husk-image">
 
 <div class="product-badge">
-RICE HUSK
+PRODUCT 02
 </div>
 
 <div class="husk-photo"></div>
+
+<div class="husk-title">
+RICE<br>
+HUSK
+</div>
 
 </div>
 
 
 <div class="product-content">
 
-<span class="product-number">
+<div class="product-number">
 PRODUCT 02
-</span>
+</div>
 
 <h3>
 Rice Husk
 </h3>
 
 <p>
-Rice-processing biomass material supplied
-for suitable industrial and commercial
-applications.
+Rice husk is an agricultural biomass resource with applications across biomass fuel and other industrial uses.
 </p>
 
 <ul>
-
-<li>Agricultural biomass material</li>
-<li>Available for bulk requirements</li>
-<li>Suitable for appropriate applications</li>
-
+<li>Agricultural biomass resource</li>
+<li>Suitable for industrial applications</li>
+<li>Renewable raw material</li>
 </ul>
 
 <a href="#contact" class="product-link">
-Enquire about rice husk →
+Enquire About Rice Husk →
 </a>
 
 </div>
@@ -1198,10 +1182,9 @@ Enquire about rice husk →
 </section>
 
 
-
 <!-- ================= APPLICATIONS ================= -->
 
-<section id="applications" class="section">
+<section class="section" id="applications">
 
 <div class="container">
 
@@ -1210,12 +1193,11 @@ APPLICATIONS
 </p>
 
 <h2>
-Where biomass can make a difference.
+Built for practical use.
 </h2>
 
 <p class="section-intro">
-Applications depend on the equipment, fuel
-specifications and operating requirements of each business.
+Our biomass products can support a range of industrial and commercial applications where renewable resources and dependable fuel supply are important.
 </p>
 
 
@@ -1227,12 +1209,11 @@ specifications and operating requirements of each business.
 <span>01</span>
 
 <h3>
-Industrial Boilers
+Industrial Heating
 </h3>
 
 <p>
-Biomass fuel can be used in compatible
-boiler systems for process heat.
+Biomass fuels can be used for industrial heating requirements.
 </p>
 
 </div>
@@ -1243,12 +1224,11 @@ boiler systems for process heat.
 <span>02</span>
 
 <h3>
-Heating Systems
+Boilers
 </h3>
 
 <p>
-Suitable biomass systems can use solid
-biomass fuels for heating requirements.
+Suitable biomass fuels can support boiler and thermal applications.
 </p>
 
 </div>
@@ -1263,8 +1243,7 @@ Manufacturing
 </h3>
 
 <p>
-Businesses with compatible thermal
-processes can consider biomass fuel solutions.
+Biomass resources can support energy requirements in manufacturing environments.
 </p>
 
 </div>
@@ -1275,12 +1254,11 @@ processes can consider biomass fuel solutions.
 <span>04</span>
 
 <h3>
-Bulk Fuel Requirements
+Commercial Energy
 </h3>
 
 <p>
-Suitable for businesses requiring
-regular quantities of biomass materials.
+Renewable biomass products can be used in suitable commercial energy applications.
 </p>
 
 </div>
@@ -1293,8 +1271,7 @@ regular quantities of biomass materials.
 </section>
 
 
-
-<!-- ================= WHY CHOOSE US ================= -->
+<!-- ================= WHY AR BIOMASS ================= -->
 
 <section class="section dark-section">
 
@@ -1305,8 +1282,9 @@ WHY AR BIOMASS
 </p>
 
 <h2>
-A straightforward approach
-to biomass supply.
+Reliable resources.
+Practical energy.
+Sustainable direction.
 </h2>
 
 
@@ -1318,12 +1296,11 @@ to biomass supply.
 <strong>01</strong>
 
 <h3>
-Quality Focus
+Reliable Supply
 </h3>
 
 <p>
-We focus on clear product information
-and consistent supply expectations.
+Focused on dependable product availability and supply.
 </p>
 
 </div>
@@ -1334,12 +1311,11 @@ and consistent supply expectations.
 <strong>02</strong>
 
 <h3>
-Reliable Supply
+Biomass Focus
 </h3>
 
 <p>
-Designed for businesses that need
-dependable biomass sourcing.
+Dedicated to practical biomass products and resources.
 </p>
 
 </div>
@@ -1350,12 +1326,11 @@ dependable biomass sourcing.
 <strong>03</strong>
 
 <h3>
-Business First
+Sustainable
 </h3>
 
 <p>
-Professional communication for
-industrial and commercial requirements.
+Supporting responsible use of renewable agricultural resources.
 </p>
 
 </div>
@@ -1366,12 +1341,11 @@ industrial and commercial requirements.
 <strong>04</strong>
 
 <h3>
-Responsible Resources
+Business Ready
 </h3>
 
 <p>
-Biomass can make productive use of
-agricultural resources and residues.
+Products intended for practical industrial and commercial requirements.
 </p>
 
 </div>
@@ -1384,10 +1358,9 @@ agricultural resources and residues.
 </section>
 
 
-
 <!-- ================= GALLERY ================= -->
 
-<section id="gallery" class="section">
+<section class="section" id="gallery">
 
 <div class="container">
 
@@ -1396,18 +1369,13 @@ GALLERY
 </p>
 
 <h2>
-Our Products & Operations
+Our Gallery
 </h2>
 
 <p class="section-intro">
-Explore the products and business activities of AR Biomass.
+Real product photographs will be added here later.
 </p>
 
-
-<!--
-     GALLERY IS INTENTIONALLY LEFT EMPTY.
-     YOUR TWO REAL PHOTOS CAN BE ADDED HERE LATER.
--->
 
 <div class="gallery-grid">
 
@@ -1415,7 +1383,7 @@ Explore the products and business activities of AR Biomass.
 <div class="gallery-item">
 
 <div class="gallery-placeholder">
-Photo will be added later
+Photo Coming Soon
 </div>
 
 </div>
@@ -1424,7 +1392,7 @@ Photo will be added later
 <div class="gallery-item">
 
 <div class="gallery-placeholder">
-Photo will be added later
+Photo Coming Soon
 </div>
 
 </div>
@@ -1437,89 +1405,59 @@ Photo will be added later
 </section>
 
 
-
 <!-- ================= CONTACT ================= -->
 
-<section id="contact" class="contact-section">
+<section class="contact-section" id="contact">
 
-<div class="container contact-grid">
-
-
-<div>
+<div class="container">
 
 <p class="eyebrow">
 CONTACT AR BIOMASS
 </p>
 
 <h2>
-Have a biomass requirement?
+Let's discuss your biomass requirements.
 </h2>
 
+<br>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-card">
+
+<h3>
+AR Biomass
+</h3>
+
 <p>
-Contact AR Biomass to discuss your product,
-quantity and supply requirements.
+For enquiries regarding Biomass Briquettes and Rice Husk, contact us directly.
+</p>
+
+<p>
+<strong>Products:</strong><br>
+Biomass Briquettes<br>
+Rice Husk
 </p>
 
 </div>
 
 
-
 <div class="contact-card">
 
-
-<!-- PHONE -->
-
-<div class="contact-item">
-
-<span>
-PHONE
-</span>
-
-<a href="tel:+919837591626">
-+91 98375 91626
-</a>
-
-<br>
-
-<a href="tel:+919837419392">
-+91 98374 19392
-</a>
-
-</div>
-
-
-
-<!-- WHATSAPP -->
-
-<div class="contact-item">
-
-<span>
-WHATSAPP
-</span>
-
-<a
-href="https://wa.me/919837591626"
-target="_blank"
-rel="noopener"
->
-Chat on WhatsApp
-</a>
-
-</div>
-
-
-
-<!-- ADDRESS -->
-
-<div class="contact-item">
-
-<span>
-ADDRESS
-</span>
+<h3>
+Get in Touch
+</h3>
 
 <p>
-Tatarpur Road, behind K.K. Dharam Kata,
-near Purana Kali Nadi, Hapur
+<strong>Phone:</strong><br>
+Contact AR Biomass for current availability and requirements.
+</p>
+
+<p>
+<strong>Business:</strong><br>
+Biomass Products & Sustainable Resources
 </p>
 
 </div>
@@ -1532,33 +1470,33 @@ near Purana Kali Nadi, Hapur
 </section>
 
 
-
 <!-- ================= FOOTER ================= -->
 
 <footer>
 
-<div class="container footer-content">
+<div class="container footer-grid">
 
+
+<div class="footer-brand">
+
+<img src="ar-logo.png" alt="AR Biomass Logo">
 
 <div>
 
-<strong>
-AR Biomass
-</strong>
+<strong>AR Biomass</strong>
 
-<p>
-Biomass Briquettes • Rice Husk
-</p>
+<span>
+Natural Resource • Sustainable Tomorrow
+</span>
+
+</div>
 
 </div>
 
 
-<div>
+<div class="footer-right">
 
-<p>
-© 2026 AR Biomass.
-All rights reserved.
-</p>
+© 2026 AR Biomass. All rights reserved.
 
 </div>
 

@@ -38,7 +38,6 @@ a{
     margin:auto;
 }
 
-
 /* ================= HEADER ================= */
 
 .site-header{
@@ -58,6 +57,8 @@ a{
     gap:30px;
 }
 
+/* CIRCULAR AR BIOMASS LOGO */
+
 .logo{
     display:flex;
     align-items:center;
@@ -65,21 +66,33 @@ a{
 }
 
 .logo-box{
-    width:52px;
-    height:52px;
+    width:50px;
+    height:50px;
     border-radius:50%;
-    background:white;
-    overflow:hidden;
+    background:
+        radial-gradient(circle at 35% 30%,#4f805c,#174d34 62%,#0e3926);
+    color:white;
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
-    flex-shrink:0;
-    border:1px solid #d7e0d7;
+    border:2px solid rgba(255,255,255,.7);
+    box-shadow:
+        0 6px 18px rgba(18,60,42,.22),
+        inset 0 0 0 2px rgba(255,255,255,.12);
+    font-weight:900;
+    line-height:1;
 }
 
-.logo-box svg{
-    width:100%;
-    height:100%;
+.logo-box strong{
+    font-size:17px;
+    letter-spacing:1px;
+}
+
+.logo-box small{
+    font-size:6px;
+    letter-spacing:1.5px;
+    margin-top:3px;
 }
 
 .logo-text{
@@ -113,7 +126,6 @@ a{
     color:#a46f28;
 }
 
-
 /* ================= HERO ================= */
 
 .hero{
@@ -121,16 +133,8 @@ a{
     display:flex;
     align-items:center;
     background:
-    radial-gradient(
-        circle at 78% 45%,
-        rgba(180,138,69,.16),
-        transparent 28%
-    ),
-    linear-gradient(
-        135deg,
-        #f6f8f2,
-        #eaf1e8
-    );
+        radial-gradient(circle at 78% 45%,rgba(180,138,69,.16),transparent 28%),
+        linear-gradient(135deg,#f6f8f2,#eaf1e8);
     overflow:hidden;
 }
 
@@ -203,8 +207,7 @@ a{
     color:white;
 }
 
-
-/* ================= HERO LOGO ================= */
+/* ================= CIRCLE LOGO HERO ================= */
 
 .hero-visual{
     min-height:440px;
@@ -213,56 +216,70 @@ a{
     position:relative;
 }
 
-.hero-logo-circle{
+.hero-circle{
     width:min(420px,80vw);
     height:min(420px,80vw);
     border-radius:50%;
-    background:white;
-    box-shadow:0 30px 70px rgba(18,60,42,.22);
+    background:
+        radial-gradient(circle at 50% 35%,#5c8a65,#245c3e 58%,#103a27);
+    box-shadow:
+        0 30px 70px rgba(18,60,42,.22),
+        inset 0 0 50px rgba(255,255,255,.08);
     position:relative;
-    border:1px solid rgba(18,60,42,.15);
-    overflow:hidden;
+    border:1px solid rgba(255,255,255,.35);
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
-.hero-logo-circle::before{
+.hero-circle::before{
     content:"";
     position:absolute;
-    inset:25px;
-    border:1px solid rgba(18,60,42,.16);
+    inset:30px;
+    border:1px solid rgba(255,255,255,.28);
     border-radius:50%;
-    pointer-events:none;
 }
 
-.hero-logo-inner{
-    width:74%;
-    height:74%;
+.hero-circle::after{
+    content:"";
+    position:absolute;
+    inset:55px;
+    border:1px solid rgba(255,255,255,.12);
     border-radius:50%;
-    border:3px solid #123c2a;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    color:#123c2a;
+}
+
+.circle-logo-content{
     position:relative;
     z-index:2;
+    text-align:center;
+    color:white;
 }
 
-.hero-logo-inner .ar{
-    font-size:72px;
-    line-height:1;
+.circle-logo-ar{
+    font-size:76px;
     font-weight:900;
-    letter-spacing:-5px;
+    letter-spacing:5px;
+    line-height:1;
 }
 
-.hero-logo-inner .biomass{
-    font-size:15px;
+.circle-logo-name{
+    font-size:17px;
     font-weight:800;
-    letter-spacing:4px;
-    color:#a46f28;
-    margin-top:8px;
+    letter-spacing:5px;
+    margin-top:12px;
+}
+
+.circle-logo-line{
+    width:70px;
+    height:2px;
+    background:#d7ad61;
+    margin:16px auto;
+}
+
+.circle-logo-sub{
+    font-size:10px;
+    letter-spacing:3px;
+    color:#dce9df;
 }
 
 .hero-label{
@@ -288,7 +305,6 @@ a{
     color:#123c2a;
     margin-top:3px;
 }
-
 
 /* ================= STATS ================= */
 
@@ -323,7 +339,6 @@ a{
     text-transform:uppercase;
     letter-spacing:1px;
 }
-
 
 /* ================= SECTIONS ================= */
 
@@ -366,7 +381,6 @@ h2{
     font-weight:600;
 }
 
-
 /* ================= PRODUCTS ================= */
 
 .section-heading{
@@ -404,154 +418,176 @@ h2{
     justify-content:center;
 }
 
-
-/* ================= OLD BIOMASS PRODUCT ================= */
+/* ================= BIOMASS BRIQUETTES ================= */
 
 .briquettes-image{
     background:
-    radial-gradient(
-        circle at 50% 48%,
-        rgba(83,132,83,.75),
-        rgba(31,92,58,.55) 30%,
-        transparent 58%
-    ),
-    linear-gradient(
-        145deg,
-        #164a31,
-        #2d6848
-    );
+        radial-gradient(circle at 50% 45%,rgba(125,165,115,.45),transparent 25%),
+        linear-gradient(145deg,#0e452d,#2f6848);
 }
 
-.briquettes-image::before{
+.briquette-stack{
+    position:relative;
+    width:310px;
+    height:240px;
+}
+
+.block{
+    position:absolute;
+    width:155px;
+    height:70px;
+    border-radius:12px;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #30251c 0 10px,
+            #5d4937 11px 19px
+        );
+    box-shadow:
+        inset 0 7px 10px rgba(255,255,255,.08),
+        0 15px 20px rgba(0,0,0,.28);
+}
+
+.block::after{
     content:"";
     position:absolute;
-    width:310px;
-    height:310px;
+    width:12px;
+    height:12px;
     border-radius:50%;
-    border:1px solid rgba(255,255,255,.20);
+    background:#211a15;
+    left:20px;
+    top:28px;
+    box-shadow:
+        35px 7px 0 #211a15,
+        80px -8px 0 #211a15,
+        120px 6px 0 #211a15;
+    opacity:.7;
 }
 
-.briquettes-title{
-    position:relative;
-    z-index:3;
-    color:white;
-    text-align:center;
-    font-size:44px;
-    line-height:.95;
-    font-weight:900;
-    letter-spacing:2px;
+.block-1{
+    left:15px;
+    top:90px;
+    transform:rotate(-12deg);
 }
 
+.block-2{
+    right:5px;
+    top:60px;
+    transform:rotate(14deg);
+}
 
-/* ================= OLD RICE HUSK PRODUCT ================= */
+.block-3{
+    left:78px;
+    top:140px;
+    transform:rotate(5deg);
+}
+
+/* ================= RICE HUSK ================= */
 
 .husk-image{
     background:
-    radial-gradient(
-        circle at 50% 40%,
-        rgba(255,213,124,.3),
-        transparent 35%
-    ),
-    linear-gradient(
-        145deg,
-        #765a2d,
-        #b0843d
-    );
+        radial-gradient(circle at 50% 45%,rgba(255,213,124,.32),transparent 30%),
+        linear-gradient(145deg,#765a2d,#b0843d);
 }
 
-.husk-photo{
-    width:82%;
-    height:72%;
-    border-radius:20px;
-
-    background:
-    radial-gradient(
-        ellipse at 20% 30%,
-        #e8bd68 0 7%,
-        transparent 8%
-    ),
-    radial-gradient(
-        ellipse at 40% 70%,
-        #d4a44e 0 8%,
-        transparent 9%
-    ),
-    radial-gradient(
-        ellipse at 75% 35%,
-        #efc977 0 7%,
-        transparent 8%
-    ),
-    radial-gradient(
-        ellipse at 60% 55%,
-        #c9953e 0 7%,
-        transparent 8%
-    ),
-    radial-gradient(
-        ellipse at 85% 75%,
-        #e1b45c 0 8%,
-        transparent 9%
-    ),
-    radial-gradient(
-        ellipse at 30% 55%,
-        #f0cc7d 0 6%,
-        transparent 7%
-    ),
-    radial-gradient(
-        ellipse at 50% 25%,
-        #bd8935 0 7%,
-        transparent 8%
-    ),
-    radial-gradient(
-        ellipse at 10% 80%,
-        #d8aa50 0 7%,
-        transparent 8%
-    ),
-    #c69642;
-
-    box-shadow:
-    inset 0 0 45px rgba(80,50,15,.25),
-    0 20px 35px rgba(40,25,5,.25);
-
+.husk-pile{
+    width:290px;
+    height:235px;
     position:relative;
-    transform:rotate(-2deg);
 }
 
-.husk-photo::before,
-.husk-photo::after{
-    content:"";
+.husk-grain{
     position:absolute;
+    width:72px;
+    height:25px;
+    border-radius:70% 30% 70% 30%;
+    background:
+        linear-gradient(135deg,#f2d28a,#b98231);
+    box-shadow:
+        inset 3px 3px 5px rgba(255,255,255,.28),
+        0 7px 10px rgba(50,30,5,.18);
+}
+
+.h1{
+    left:20px;
+    top:85px;
+    transform:rotate(-24deg);
+}
+
+.h2{
+    left:70px;
+    top:55px;
+    transform:rotate(18deg);
+}
+
+.h3{
+    left:125px;
+    top:75px;
+    transform:rotate(-12deg);
+}
+
+.h4{
+    left:180px;
+    top:50px;
+    transform:rotate(27deg);
+}
+
+.h5{
+    left:55px;
+    top:115px;
+    transform:rotate(10deg);
+}
+
+.h6{
+    left:115px;
+    top:125px;
+    transform:rotate(-25deg);
+}
+
+.h7{
+    left:175px;
+    top:110px;
+    transform:rotate(15deg);
+}
+
+.h8{
+    left:95px;
+    top:165px;
+    transform:rotate(20deg);
+}
+
+.h9{
+    left:150px;
+    top:155px;
+    transform:rotate(-15deg);
+}
+
+.husk-center{
+    position:absolute;
+    width:150px;
+    height:100px;
+    left:70px;
+    top:75px;
+    background:
+        radial-gradient(ellipse at center,#e4bd67,#b88335);
     border-radius:50%;
-    border:2px solid rgba(255,225,157,.45);
+    opacity:.35;
+    filter:blur(5px);
 }
 
-.husk-photo::before{
-    width:80px;
-    height:24px;
-    left:35px;
-    top:35px;
-    transform:rotate(25deg);
-}
-
-.husk-photo::after{
-    width:100px;
-    height:30px;
-    right:35px;
-    bottom:35px;
-    transform:rotate(-20deg);
-}
-
-.husk-title{
+.product-badge{
     position:absolute;
-    z-index:4;
+    top:22px;
+    left:22px;
+    padding:8px 13px;
+    border:1px solid rgba(255,255,255,.3);
     color:white;
-    text-align:center;
-    font-size:44px;
-    line-height:.95;
-    font-weight:900;
+    border-radius:30px;
+    font-size:10px;
     letter-spacing:2px;
+    font-weight:800;
+    z-index:5;
 }
-
-
-/* ================= PRODUCT CONTENT ================= */
 
 .product-content{
     padding:32px;
@@ -591,7 +627,6 @@ h2{
     margin-top:5px;
 }
 
-
 /* ================= APPLICATIONS ================= */
 
 .section-intro{
@@ -628,7 +663,6 @@ h2{
     color:#647168;
     font-size:14px;
 }
-
 
 /* ================= WHY ================= */
 
@@ -671,9 +705,9 @@ h2{
     font-size:14px;
 }
 
-
 /* ================= GALLERY ================= */
-/* NO PRODUCT PHOTOS HERE */
+/* Gallery intentionally contains placeholders only.
+   Your two real photos can be added later. */
 
 .gallery-grid{
     display:grid;
@@ -688,20 +722,30 @@ h2{
     overflow:hidden;
     position:relative;
     background:#edf2ea;
-    border:2px dashed #cbd8ca;
+    border:1px dashed #b9c7ba;
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
 .gallery-placeholder{
-    color:#718177;
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:1px;
-    text-transform:uppercase;
+    color:#68766e;
+    font-size:14px;
+    text-align:center;
+    padding:20px;
 }
 
+.gallery-label{
+    position:absolute;
+    left:20px;
+    bottom:20px;
+    background:rgba(255,255,255,.94);
+    padding:9px 14px;
+    border-radius:7px;
+    font-size:12px;
+    font-weight:800;
+    color:#123c2a;
+}
 
 /* ================= CONTACT ================= */
 
@@ -712,32 +756,60 @@ h2{
 
 .contact-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
+    grid-template-columns:1fr .8fr;
+    gap:70px;
+    align-items:center;
+}
+
+.contact-grid h2{
+    max-width:600px;
+}
+
+.contact-grid>div:first-child>p:last-child{
+    max-width:580px;
+    color:#5c6d64;
+    margin-top:20px;
 }
 
 .contact-card{
-    background:white;
+    background:#123c2a;
+    color:white;
     padding:35px;
-    border-radius:15px;
-    box-shadow:0 15px 35px rgba(20,50,35,.07);
+    border-radius:16px;
+    box-shadow:0 20px 45px rgba(18,60,42,.18);
 }
 
-.contact-card h3{
-    color:#123c2a;
-    margin-bottom:18px;
+.contact-item{
+    padding:20px 0;
+    border-bottom:1px solid rgba(255,255,255,.15);
 }
 
-.contact-card p{
-    color:#627067;
-    margin:10px 0;
+.contact-item:last-child{
+    border-bottom:none;
 }
 
+.contact-item>span{
+    display:block;
+    color:#d7ad61;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:900;
+    margin-bottom:8px;
+}
+
+.contact-item a{
+    font-size:17px;
+    font-weight:700;
+}
+
+.contact-item p{
+    color:#d2ddd6;
+}
 
 /* ================= FOOTER ================= */
 
 footer{
-    background:#0d2e21;
+    background:#0c2c1e;
     color:white;
     padding:35px 0;
 }
@@ -745,62 +817,66 @@ footer{
 .footer-content{
     display:flex;
     justify-content:space-between;
-    align-items:center;
     gap:30px;
+    align-items:center;
+}
+
+.footer-content strong{
+    font-size:18px;
 }
 
 .footer-content p{
-    color:#b9c8bf;
+    color:#b9c9bf;
     font-size:13px;
+    margin-top:4px;
 }
-
-.footer-links{
-    display:flex;
-    gap:20px;
-}
-
-.footer-links a{
-    color:#d3ded7;
-    font-size:13px;
-}
-
-.footer-links a:hover{
-    color:#d7ad61;
-}
-
 
 /* ================= RESPONSIVE ================= */
 
 @media(max-width:900px){
 
     .navigation{
-        gap:12px;
+        display:none;
     }
 
-    .navigation a{
-        font-size:12px;
-    }
-
-    .hero-content{
+    .hero-content,
+    .two-column,
+    .contact-grid{
         grid-template-columns:1fr;
-        padding:70px 0;
+    }
+
+    .hero{
+        min-height:auto;
     }
 
     .hero-visual{
-        min-height:380px;
+        min-height:430px;
     }
 
-    .two-column{
+    .product-grid{
         grid-template-columns:1fr;
-        gap:45px;
     }
 
-    .application-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
+    .application-grid,
     .why-grid{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    .section-heading{
+        align-items:start;
+        flex-direction:column;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero-content{
+        padding:65px 0;
+    }
+
+    .hero h1{
+        font-size:45px;
+        letter-spacing:-2px;
     }
 
     .stats-grid{
@@ -811,64 +887,38 @@ footer{
         border-right:none;
     }
 
-    .product-grid{
-        grid-template-columns:1fr;
-    }
-
-    .contact-grid{
-        grid-template-columns:1fr;
-    }
-}
-
-@media(max-width:650px){
-
-    .nav{
-        flex-direction:column;
-        padding:15px 0;
-    }
-
-    .navigation{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .hero h1{
-        font-size:48px;
-    }
-
-    .product-image{
-        height:300px;
-    }
-
-    .briquettes-title,
-    .husk-title{
-        font-size:35px;
-    }
-
-    .application-grid{
-        grid-template-columns:1fr;
-    }
-
-    .why-grid{
-        grid-template-columns:1fr;
-    }
-
+    .application-grid,
+    .why-grid,
     .gallery-grid{
         grid-template-columns:1fr;
     }
 
+    .product-image{
+        height:280px;
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
     .footer-content{
         flex-direction:column;
-        text-align:center;
+        align-items:flex-start;
+    }
+
+    .hero-label{
+        right:5%;
+    }
+
+    .logo-text span{
+        display:none;
     }
 }
 
 </style>
 </head>
 
-
 <body>
-
 
 <!-- ================= HEADER ================= -->
 
@@ -879,67 +929,24 @@ footer{
 <a href="#home" class="logo">
 
 <div class="logo-box">
-
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-
-<circle cx="50" cy="50" r="48" fill="#ffffff"/>
-
-<circle
-cx="50"
-cy="50"
-r="40"
-fill="none"
-stroke="#123c2a"
-stroke-width="2"
-/>
-
-<text
-x="50"
-y="54"
-text-anchor="middle"
-font-size="31"
-font-weight="900"
-font-family="Arial"
-fill="#123c2a">
-AR
-</text>
-
-<text
-x="50"
-y="72"
-text-anchor="middle"
-font-size="7"
-font-weight="800"
-letter-spacing="2"
-font-family="Arial"
-fill="#a46f28">
-BIOMASS
-</text>
-
-</svg>
-
+    <strong>AR</strong>
+    <small>BIOMASS</small>
 </div>
 
 <div class="logo-text">
-
-<strong>AR Biomass</strong>
-
-<span>Natural Resource • Sustainable Tomorrow</span>
-
+    <strong>AR Biomass</strong>
+    <span>Biomass • Sustainable Fuel</span>
 </div>
 
 </a>
 
-
 <nav class="navigation">
-
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#products">Products</a>
-<a href="#applications">Applications</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Contact</a>
-
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Products</a>
+    <a href="#applications">Applications</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
 </nav>
 
 </div>
@@ -947,18 +954,17 @@ BIOMASS
 </header>
 
 
-
 <!-- ================= HERO ================= -->
 
-<section class="hero" id="home">
+<section id="home" class="hero">
 
 <div class="container hero-content">
 
-<div>
+<div class="hero-text">
 
-<div class="eyebrow">
+<p class="eyebrow">
 RELIABLE BIOMASS SUPPLY
-</div>
+</p>
 
 <h1>
 Cleaner Fuel.<br>
@@ -967,22 +973,18 @@ Reliable Supply.<br>
 </h1>
 
 <p class="hero-description">
-AR Biomass supplies quality biomass products for industrial and
-commercial applications, with a focus on dependable supply,
-practical energy solutions and sustainable resources.
+AR Biomass supplies Biomass Briquettes and Rice Husk
+for industrial and commercial applications, with a
+focus on dependable quality and responsible resource use.
 </p>
 
 <div class="hero-buttons">
 
-<a
-href="#products"
-class="button primary-button">
+<a href="#products" class="button primary-button">
 Explore Products
 </a>
 
-<a
-href="#contact"
-class="button secondary-button">
+<a href="#contact" class="button secondary-button">
 Contact Us
 </a>
 
@@ -991,26 +993,41 @@ Contact Us
 </div>
 
 
+<!-- CIRCLE AR BIOMASS LOGO -->
+
 <div class="hero-visual">
 
-<div class="hero-logo-circle">
+<div class="hero-circle">
 
-<div class="hero-logo-inner">
+<div class="circle-logo-content">
 
-<div class="ar">AR</div>
+<div class="circle-logo-ar">
+AR
+</div>
 
-<div class="biomass">
+<div class="circle-logo-name">
 BIOMASS
 </div>
 
+<div class="circle-logo-line"></div>
+
+<div class="circle-logo-sub">
+NATURAL RESOURCE
+</div>
+
+<div class="circle-logo-sub">
+SUSTAINABLE TOMORROW
 </div>
 
 </div>
 
+</div>
 
 <div class="hero-label">
 
-<small>AR BIOMASS</small>
+<small>
+AR BIOMASS
+</small>
 
 <strong>
 Natural Resource • Sustainable Tomorrow
@@ -1025,7 +1042,6 @@ Natural Resource • Sustainable Tomorrow
 </section>
 
 
-
 <!-- ================= STATS ================= -->
 
 <section class="stats">
@@ -1033,46 +1049,23 @@ Natural Resource • Sustainable Tomorrow
 <div class="container stats-grid">
 
 <div class="stat">
-
-<strong>01</strong>
-
-<span>
-Core Products
-</span>
-
+<strong>02</strong>
+<span>Core Products</span>
 </div>
 
-
 <div class="stat">
-
-<strong>100%</strong>
-
-<span>
-Biomass Focus
-</span>
-
+<strong>B2B</strong>
+<span>Business Focus</span>
 </div>
 
-
 <div class="stat">
-
-<strong>24/7</strong>
-
-<span>
-Supply Support
-</span>
-
+<strong>Bulk</strong>
+<span>Supply</span>
 </div>
 
-
 <div class="stat">
-
-<strong>GREEN</strong>
-
-<span>
-Sustainable Direction
-</span>
-
+<strong>Quality</strong>
+<span>Focused</span>
 </div>
 
 </div>
@@ -1080,48 +1073,46 @@ Sustainable Direction
 </section>
 
 
-
 <!-- ================= ABOUT ================= -->
 
-<section class="section" id="about">
+<section id="about" class="section">
 
 <div class="container two-column">
 
 <div>
 
-<div class="eyebrow">
+<p class="eyebrow">
 ABOUT AR BIOMASS
-</div>
+</p>
 
 <h2>
-Practical Biomass.
-Reliable Supply.
+Turning agricultural resources
+into useful energy.
 </h2>
 
 </div>
 
-
 <div class="about-text">
 
 <p>
-AR Biomass focuses on supplying dependable biomass products
-for industrial and commercial requirements.
+AR Biomass is focused on supplying biomass-based
+materials for businesses looking for practical and
+responsible fuel solutions.
 </p>
 
 <p>
-Our approach is built around consistent supply, practical
-energy solutions and responsible use of natural resources.
+Our product range includes Biomass Briquettes and Rice Husk.
+We aim to provide dependable supply, clear product
+information and professional service to our business
+customers.
 </p>
 
 <div class="check-list">
 
 <div>✓ Reliable product supply</div>
-
-<div>✓ Industrial and commercial applications</div>
-
-<div>✓ Sustainable resource focus</div>
-
-<div>✓ Quality-oriented approach</div>
+<div>✓ Professional B2B service</div>
+<div>✓ Bulk supply solutions</div>
+<div>✓ Resource-conscious approach</div>
 
 </div>
 
@@ -1132,12 +1123,9 @@ energy solutions and responsible use of natural resources.
 </section>
 
 
-
 <!-- ================= PRODUCTS ================= -->
 
-<section
-class="section light-section"
-id="products">
+<section id="products" class="section light-section">
 
 <div class="container">
 
@@ -1145,19 +1133,20 @@ id="products">
 
 <div>
 
-<div class="eyebrow">
+<p class="eyebrow">
 OUR PRODUCTS
-</div>
+</p>
 
 <h2>
-Biomass Products
+Biomass products for
+practical applications.
 </h2>
 
 </div>
 
 <p>
-Quality biomass materials for practical industrial and
-commercial applications.
+Explore the core biomass products supplied by
+AR Biomass.
 </p>
 
 </div>
@@ -1166,16 +1155,21 @@ commercial applications.
 <div class="product-grid">
 
 
-<!-- PRODUCT 01 -->
+<!-- BIOMASS BRIQUETTES -->
 
-<div class="product-card">
+<article class="product-card">
 
 <div class="product-image briquettes-image">
 
-<div class="briquettes-title">
+<div class="product-badge">
+BIOMASS BRIQUETTES
+</div>
 
-BIOMASS<br>
-BRIQUETTES
+<div class="briquette-stack">
+
+<div class="block block-1"></div>
+<div class="block block-2"></div>
+<div class="block block-3"></div>
 
 </div>
 
@@ -1184,56 +1178,59 @@ BRIQUETTES
 
 <div class="product-content">
 
-<div class="product-number">
+<span class="product-number">
 PRODUCT 01
-</div>
+</span>
 
 <h3>
 Biomass Briquettes
 </h3>
 
 <p>
-Biomass briquettes are a compact renewable fuel made from
-biomass materials and suitable for a range of heating and
-industrial applications.
+Compressed biomass fuel designed for
+convenient handling, storage and use in
+suitable industrial heating and boiler
+applications.
 </p>
 
 <ul>
-
-<li>Renewable biomass fuel</li>
-
-<li>Suitable for industrial heating</li>
-
-<li>Compact and convenient fuel form</li>
-
-<li>Alternative to conventional solid fuels</li>
-
+<li>Compact and easy to handle</li>
+<li>Suitable for bulk supply</li>
+<li>Useful for compatible biomass systems</li>
 </ul>
 
-<a
-href="#contact"
-class="product-link">
-Enquire About Briquettes →
+<a href="#contact" class="product-link">
+Enquire about briquettes →
 </a>
 
 </div>
 
-</div>
+</article>
 
 
+<!-- RICE HUSK -->
 
-<!-- PRODUCT 02 -->
-
-<div class="product-card">
+<article class="product-card">
 
 <div class="product-image husk-image">
 
-<div class="husk-photo"></div>
+<div class="product-badge">
+RICE HUSK
+</div>
 
-<div class="husk-title">
+<div class="husk-pile">
 
-RICE<br>
-HUSK
+<div class="husk-center"></div>
+
+<div class="husk-grain h1"></div>
+<div class="husk-grain h2"></div>
+<div class="husk-grain h3"></div>
+<div class="husk-grain h4"></div>
+<div class="husk-grain h5"></div>
+<div class="husk-grain h6"></div>
+<div class="husk-grain h7"></div>
+<div class="husk-grain h8"></div>
+<div class="husk-grain h9"></div>
 
 </div>
 
@@ -1242,139 +1239,97 @@ HUSK
 
 <div class="product-content">
 
-<div class="product-number">
+<span class="product-number">
 PRODUCT 02
-</div>
+</span>
 
 <h3>
 Rice Husk
 </h3>
 
 <p>
-Rice husk is an agricultural biomass material with applications
-in energy, fuel and other industrial processes.
+Rice-processing biomass material supplied
+for suitable industrial and commercial
+applications.
 </p>
 
 <ul>
-
 <li>Agricultural biomass material</li>
-
-<li>Useful for biomass energy applications</li>
-
-<li>Industrial raw material</li>
-
-<li>Renewable resource</li>
-
+<li>Available for bulk requirements</li>
+<li>Suitable for appropriate applications</li>
 </ul>
 
-<a
-href="#contact"
-class="product-link">
-Enquire About Rice Husk →
+<a href="#contact" class="product-link">
+Enquire about rice husk →
 </a>
 
 </div>
 
-</div>
-
+</article>
 
 </div>
 
 </div>
 
 </section>
-
 
 
 <!-- ================= APPLICATIONS ================= -->
 
-<section
-class="section"
-id="applications">
+<section id="applications" class="section">
 
 <div class="container">
 
-<div class="eyebrow">
+<p class="eyebrow">
 APPLICATIONS
-</div>
+</p>
 
 <h2>
-Where Biomass Works
+Where biomass can make a difference.
 </h2>
 
 <p class="section-intro">
-Biomass products can support different industrial and
-commercial applications where dependable renewable fuel
-and raw materials are required.
+Applications depend on the equipment, fuel
+specifications and operating requirements of each business.
 </p>
-
 
 <div class="application-grid">
 
-
 <div class="application-card">
-
 <span>01</span>
-
-<h3>
-Industrial Heating
-</h3>
-
+<h3>Industrial Boilers</h3>
 <p>
-Biomass fuels can be used in industrial heating systems
-and thermal applications.
+Biomass fuel can be used in compatible
+boiler systems for process heat.
 </p>
-
 </div>
 
-
 <div class="application-card">
-
 <span>02</span>
-
-<h3>
-Boilers
-</h3>
-
+<h3>Heating Systems</h3>
 <p>
-Biomass briquettes can serve as a solid fuel option for
-suitable boiler systems.
+Suitable biomass systems can use solid
+biomass fuels for heating requirements.
 </p>
-
 </div>
 
-
 <div class="application-card">
-
 <span>03</span>
-
-<h3>
-Manufacturing
-</h3>
-
+<h3>Manufacturing</h3>
 <p>
-Biomass materials can support energy and manufacturing
-requirements across different industries.
+Businesses with compatible thermal
+processes can consider biomass fuel solutions.
 </p>
-
 </div>
-
 
 <div class="application-card">
-
 <span>04</span>
-
-<h3>
-Commercial Energy
-</h3>
-
+<h3>Bulk Fuel Requirements</h3>
 <p>
-Renewable biomass fuels can be considered for suitable
-commercial heating requirements.
+Suitable for businesses requiring
+regular quantities of biomass materials.
 </p>
-
 </div>
-
 
 </div>
 
@@ -1383,88 +1338,58 @@ commercial heating requirements.
 </section>
 
 
-
-<!-- ================= WHY AR BIOMASS ================= -->
+<!-- ================= WHY ================= -->
 
 <section class="section dark-section">
 
 <div class="container">
 
-<div class="eyebrow">
+<p class="eyebrow">
 WHY AR BIOMASS
-</div>
+</p>
 
 <h2>
-A practical approach to cleaner and dependable biomass supply.
+A straightforward approach
+to biomass supply.
 </h2>
-
 
 <div class="why-grid">
 
-
 <div>
-
 <strong>01</strong>
-
-<h3>
-Reliable
-</h3>
-
+<h3>Quality Focus</h3>
 <p>
-Focused on dependable supply and practical customer
-requirements.
+We focus on clear product information
+and consistent supply expectations.
 </p>
-
 </div>
 
-
 <div>
-
 <strong>02</strong>
-
-<h3>
-Sustainable
-</h3>
-
+<h3>Reliable Supply</h3>
 <p>
-Working with renewable biomass resources and responsible
-energy solutions.
+Designed for businesses that need
+dependable biomass sourcing.
 </p>
-
 </div>
 
-
 <div>
-
 <strong>03</strong>
-
-<h3>
-Practical
-</h3>
-
+<h3>Business First</h3>
 <p>
-Products designed around real industrial and commercial
-applications.
+Professional communication for
+industrial and commercial requirements.
 </p>
-
 </div>
-
 
 <div>
-
 <strong>04</strong>
-
-<h3>
-Quality Focus
-</h3>
-
+<h3>Responsible Resources</h3>
 <p>
-A quality-oriented approach to biomass products and
-customer service.
+Biomass can make productive use of
+agricultural resources and residues.
 </p>
-
 </div>
-
 
 </div>
 
@@ -1473,48 +1398,40 @@ customer service.
 </section>
 
 
-
 <!-- ================= GALLERY ================= -->
 
-<section
-class="section light-section"
-id="gallery">
+<section id="gallery" class="section">
 
 <div class="container">
 
-<div class="eyebrow">
+<p class="eyebrow">
 GALLERY
-</div>
+</p>
 
 <h2>
-Our Gallery
+Our Products & Operations
 </h2>
 
 <p class="section-intro">
-Product and facility photographs will be added here.
+The Gallery is reserved for your real product and
+business photographs. These product illustrations
+are intentionally NOT placed here.
 </p>
 
 
 <div class="gallery-grid">
 
+<div class="gallery-item">
+<div class="gallery-placeholder">
+Your first real photograph will be added here.
+</div>
+</div>
 
 <div class="gallery-item">
-
 <div class="gallery-placeholder">
-Photo Coming Soon
+Your second real photograph will be added here.
 </div>
-
 </div>
-
-
-<div class="gallery-item">
-
-<div class="gallery-placeholder">
-Photo Coming Soon
-</div>
-
-</div>
-
 
 </div>
 
@@ -1523,31 +1440,25 @@ Photo Coming Soon
 </section>
 
 
-
 <!-- ================= CONTACT ================= -->
 
-<section
-class="contact-section"
-id="contact">
+<section id="contact" class="contact-section">
 
-<div class="container">
-
-<div class="contact-grid">
-
+<div class="container contact-grid">
 
 <div>
 
-<div class="eyebrow">
+<p class="eyebrow">
 CONTACT AR BIOMASS
-</div>
+</p>
 
 <h2>
-Let's discuss your biomass requirement.
+Have a biomass requirement?
 </h2>
 
-<p class="section-intro">
-For product enquiries, availability and supply requirements,
-please get in touch with AR Biomass.
+<p>
+Contact AR Biomass to discuss your product,
+quantity and supply requirements.
 </p>
 
 </div>
@@ -1555,39 +1466,60 @@ please get in touch with AR Biomass.
 
 <div class="contact-card">
 
-<h3>
-AR Biomass
-</h3>
+<div class="contact-item">
 
-<p>
-<strong>Products:</strong>
-Biomass Briquettes & Rice Husk
-</p>
+<span>
+PHONE
+</span>
 
-<p>
-<strong>Location:</strong>
-Hapur, Uttar Pradesh
-</p>
+<a href="tel:+919837591626">
++91 98375 91626
+</a>
 
-<p>
-<strong>Phone:</strong>
-Contact us for enquiries
-</p>
+<br>
 
-<p>
-<strong>Email:</strong>
-Contact us for business enquiries
-</p>
+<a href="tel:+919837419392">
++91 98374 19392
+</a>
 
 </div>
 
+
+<div class="contact-item">
+
+<span>
+WHATSAPP
+</span>
+
+<a
+href="https://wa.me/919837591626"
+target="_blank"
+rel="noopener"
+>
+Chat on WhatsApp
+</a>
+
+</div>
+
+
+<div class="contact-item">
+
+<span>
+ADDRESS
+</span>
+
+<p>
+Tatarpur Road, behind K.K. Dharam Kata,
+near Purana Kali Nadi, Hapur
+</p>
+
+</div>
 
 </div>
 
 </div>
 
 </section>
-
 
 
 <!-- ================= FOOTER ================= -->
@@ -1596,27 +1528,30 @@ Contact us for business enquiries
 
 <div class="container footer-content">
 
+<div>
+
+<strong>
+AR Biomass
+</strong>
+
 <p>
-© 2026 AR Biomass. All rights reserved.
+Biomass Briquettes • Rice Husk
 </p>
 
+</div>
 
-<div class="footer-links">
+<div>
 
-<a href="#home">Home</a>
-
-<a href="#products">Products</a>
-
-<a href="#gallery">Gallery</a>
-
-<a href="#contact">Contact</a>
+<p>
+© 2026 AR Biomass.
+All rights reserved.
+</p>
 
 </div>
 
 </div>
 
 </footer>
-
 
 </body>
 </html>

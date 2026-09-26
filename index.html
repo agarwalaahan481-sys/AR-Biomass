@@ -10,6 +10,73 @@
           content="AR Biomass supplies biomass briquettes and rice husk for industrial and commercial applications.">
 
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* ONLY FOR THE CIRCULAR AR BIOMASS LOGO */
+
+        .ar-biomass-logo {
+            background:
+                radial-gradient(circle at 35% 30%, #4f805c, #174d34 62%, #0e3926);
+            border: 2px solid rgba(255,255,255,.7);
+            box-shadow:
+                0 20px 45px rgba(18,60,42,.25),
+                inset 0 0 0 2px rgba(255,255,255,.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .ar-biomass-logo::before {
+            content: "";
+            position: absolute;
+            inset: 25px;
+            border: 1px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+        }
+
+        .ar-biomass-logo::after {
+            content: "";
+            position: absolute;
+            inset: 45px;
+            border: 1px solid rgba(255,255,255,.14);
+            border-radius: 50%;
+        }
+
+        .ar-logo-text {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ar-logo-text strong {
+            font-size: 72px;
+            line-height: 1;
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
+
+        .ar-logo-text span {
+            margin-top: 12px;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: #ffffff;
+        }
+
+        .ar-logo-text small {
+            margin-top: 16px;
+            padding-top: 10px;
+            border-top: 2px solid #d7ad61;
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: #dce9df;
+        }
+    </style>
 </head>
 
 <body>
@@ -82,16 +149,17 @@
         </div>
 
 
+        <!-- AR BIOMASS CIRCULAR LOGO -->
+
         <div class="hero-visual">
 
-            <div class="visual-circle">
+            <div class="visual-circle ar-biomass-logo">
 
-                <div class="pellet pellet-1"></div>
-                <div class="pellet pellet-2"></div>
-                <div class="pellet pellet-3"></div>
-                <div class="pellet pellet-4"></div>
-                <div class="pellet pellet-5"></div>
-                <div class="pellet pellet-6"></div>
+                <div class="ar-logo-text">
+                    <strong>AR</strong>
+                    <span>BIOMASS</span>
+                    <small>NATURAL RESOURCE</small>
+                </div>
 
             </div>
 
